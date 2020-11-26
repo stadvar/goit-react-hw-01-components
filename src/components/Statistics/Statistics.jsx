@@ -4,10 +4,9 @@ const getRandom = (min, max) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
 const getRandomRGB = () => {
-  return `rgb(${getRandom(10, 250)}, ${getRandom(10, 250)}, ${getRandom(
-    10,
-    250,
-  )})`;
+  return `rgb(${getRandom(10, 250)},
+   ${getRandom(10, 250)},
+    ${getRandom(10, 250)})`;
 };
 
 const Statistics = ({ title, stats }) => {
@@ -35,7 +34,9 @@ Statistics.propTypes = {
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-    }),
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired,
   ),
 };
 
